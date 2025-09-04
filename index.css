@@ -1,0 +1,230 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 10px;
+  background-color: #38383e;
+  color: #f0f0f0;
+}
+
+#controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+#aspect-ratio-container,
+#batch-size-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#model-selector, #aspect-ratio-selector, #batch-size-selector {
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #4a4a50;
+  color: #f0f0f0;
+  border: 1px solid #666;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#batch-size-selector:disabled {
+    background-color: #3e3e44;
+    cursor: not-allowed;
+}
+
+
+#prompt-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#prompt-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #4a4a50;
+    color: #f0f0f0;
+    border: 1px solid #666;
+    font-size: 1rem;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+#edit-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+#edit-controls p {
+    margin: 0;
+}
+
+#image-upload {
+    display: none;
+}
+
+.upload-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.upload-btn:hover {
+    background-color: #0056b3;
+}
+
+#image-preview-container {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    max-width: 100%;
+}
+
+#image-preview-container img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+#generate-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color: 0.3s;
+}
+
+#generate-btn:hover {
+    background-color: #45a049;
+}
+
+#generate-btn:disabled {
+    background-color: #666;
+    cursor: not-allowed;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 6px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.image-container {
+    position: relative;
+    border: 6px solid #4a4a50;
+    line-height: 0; /* remove bottom space */
+}
+
+#image-gallery img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  box-sizing: border-box;
+  display: block; /* remove bottom space */
+  cursor: zoom-in;
+}
+
+.download-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0; /* Hide by default */
+    transition: opacity 0.3s ease;
+    padding: 0;
+    z-index: 10;
+}
+
+.image-container:hover .download-btn {
+    opacity: 1; /* Show on hover */
+}
+
+#image-gallery .status-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 40px;
+}
+
+/* Lightbox styles */
+#lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+#lightbox-image {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    cursor: default;
+}
+
+#lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#lightbox-close:hover {
+    color: #bbb;
+}

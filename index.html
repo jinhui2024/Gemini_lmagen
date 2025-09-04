@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Generation & Editing Demo</title>
+    <link rel="stylesheet" href="index.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://esm.sh/@google/genai@1.0.0"
+        }
+      }
+    </script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="controls">
+      <label for="model-selector">选择模型:</label>
+      <select id="model-selector" aria-label="Choose an Image Model">
+        <option value="imagen-4.0-generate-001" selected>Imagen 4.0</option>
+        <option value="imagen-4.0-ultra-generate-001">Imagen 4.0 Ultra</option>
+        <option value="imagen-4.0-fast-generate-001">Imagen 4.0 Fast</option>
+        <option value="imagen-3.0-generate-002">Imagen 3.0</option>
+        <option value="gemini-2.5-flash-image-preview">Nano Banana (Edit)</option>
+      </select>
+      <div id="aspect-ratio-container">
+        <label for="aspect-ratio-selector">宽高比:</label>
+        <select id="aspect-ratio-selector" aria-label="Choose an Aspect Ratio">
+          <option value="1:1" selected>方形 (1:1)</option>
+          <option value="16:9">宽屏 (16:9)</option>
+          <option value="9:16">竖向 (9:16)</option>
+          <option value="4:3">横向 (4:3)</option>
+          <option value="3:4">高格式 (3:4)</option>
+        </select>
+      </div>
+      <div id="batch-size-container">
+        <label for="batch-size-selector">批量大小:</label>
+        <select id="batch-size-selector" aria-label="Choose Batch Size">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+    </div>
+    <div id="prompt-container">
+        <textarea id="prompt-input" rows="4" placeholder="Enter a prompt..."></textarea>
+        <div id="edit-controls" class="hidden">
+            <p>上传最多5张图片进行编辑:</p>
+            <label for="image-upload" class="upload-btn">上传图像</label>
+            <input type="file" id="image-upload" accept="image/*" multiple>
+            <div id="image-preview-container"></div>
+        </div>
+        <button id="generate-btn">生成图像</button>
+    </div>
+    <div id="image-gallery"></div>
+
+    <div id="lightbox-overlay" class="hidden">
+      <span id="lightbox-close">&times;</span>
+      <img id="lightbox-image" src="" alt="Zoomed image">
+    </div>
+
+    <script type="module" src="index.tsx"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
